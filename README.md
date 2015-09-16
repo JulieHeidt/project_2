@@ -1,5 +1,4 @@
 # project_2
-Do Good App
 <h1>DOGOOD/Daily Journal</h1>
 <h3> User Stories</h3>
 
@@ -18,3 +17,27 @@ Models:
 
 Extras: Able to upload a picture, show's picture in calendar. Utilize calendar gem. Giphy API.
 
+Task list
+
+1. user authentication
+2. create models
+3. link models
+4. seed data, text post and comments
+5. generate posts - edit and delete
+6. generate comments -edit and delete
+
+
+Extras
+
+1. upload photos
+2. create profiles
+3. giphy API
+4. Bootstrap
+5. Social shares
+
+Future
+
+1. Perfect UI
+2. Create Mobile friendly
+3. Calendar view
+4. Shares-share daily gratitude. have an option to send a email or message to friend.
