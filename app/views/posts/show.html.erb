@@ -1,0 +1,14 @@
+<h1>This is the show page!</h1>
+<p>
+	<%= @post.title %>
+</br>
+	<%= @post.content %>
+</p>
+<!-- 	<ul>
+		<% #@post.comments.each do |comment| %>
+			<li>
+			<%= comment.commenter %> <%= comment.body %>
+		<% #end %>
+	</ul>
+ -->
+<%= link_to "Back to home", root_path %>
