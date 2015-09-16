@@ -3,11 +3,7 @@
     <div class="row">
       <div class="col-sm-6 text-center">
         <h1>Log me in and DOGOOD</h1>
-        <%= form_for @user do |f| %>
-          <ul>
-            <li><%= f.label :name %></li>
-            <li><%= f.text_field :name %></li>
-          </ul>
+        <%= form_for :session, url: login_path do |f| %>
           
           <ul>
             <li><%= f.label :email %></li>
@@ -22,6 +18,9 @@
           <ul class="pushDown30">
             <li><%= f.submit %></li>
           </ul>
-        <% end %>
-      </div>
+       </div>
+      <% end %>
       <div class="col-sm-6">
+    </div><!-- row -->
+  </div><!-- container -->
+</section>

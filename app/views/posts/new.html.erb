@@ -1,16 +1,18 @@
 <h1>Upload a post</h1>
-<%= form_for [@user, @post] do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
+<div class="form-control">
+<%= form_for :post do |f| %>
     <div>
-    <%= f.label :content %>
-    <%= f.text_field :content %>
-  </div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+      <div>
+      <%= f.label :content %>
+      <%= f.text_field :content %>
+    </div>
 
 
-  <div>
-    <%= f.submit %>
+    <div>
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>

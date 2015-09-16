@@ -5,8 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+if Post.destroy_all && Comment.destroy_all && User.destroy_all
+# post1 = Post.create({title: "First Post", content:"This is the content of my first post"})
+# post2 = Post.create({title: "Second Post", content:"This is the content of my second post"})
+# comment1 = Comment.create!({name: "Julie", email: "julie@email.com", user_id: 1})
+# comment2 = Comment.create!({name: "Bob", email: "bob@email.com", user_id: 2})
+user1 = User.create!({name: "Julie", email: "julie@email.com", password: "juliebee", password_confirmation: "juliebee"})
+user2 = User.create!({name: "Bob", email: "bob@email.com", password: "bobby", password_confirmation: "bobby"})
+end
 
-post1 = Post.create({title: "First Post", content:"This is the content of my first post"})
-post2 = Post.create({title: "Second Post", content:"This is the content of my second post"})
-comment1 = Comment.create!({name: "Julie", email: "myemail@email.com" })
-comment2 = Comment.create!({name: "Bob", email: "myemail@email.com" })

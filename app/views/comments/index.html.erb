@@ -6,3 +6,17 @@
 	</li>
 <% end %>
 </ul>
+
+<div>
+	<div>
+		<p>
+		<%= render '/users/:user_id/posts' %>
+		</p>
+		<% end %>
+	</div>
+
+	<div>
+		<%= render 'users/:user_id/posts/:post_id/comments' %>
+	</div>
+	
+</div>

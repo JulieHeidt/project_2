@@ -2,5 +2,15 @@
 <ul>
   <% @users.each do |user| %>
     <li><%= user.name %></li>
+
+    <li>
+        <h5>Posts</h5>
+    	<ul>
+		<% user.posts.each do |p| %>
+			<li><%= p.title %></li>
+			<li><%= p.content %></li>
+		<% end %>
+		</ul>
+	</li>
 	<% end %>
 </ul>

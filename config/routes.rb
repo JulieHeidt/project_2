@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   # post "comments" => "comments#new", as: :new_comment
   # post "comments" => "comments#create"
   # get "comments/:id" => "comments#show", as: :comment
+  
   get "/login" => "sessions#new"
   post "/login" => "sessions#create"
   delete "/logout" => "sessions#destroy"
