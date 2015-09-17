@@ -4,7 +4,8 @@ class CreateComments < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :body
-      t.integer :user_id
+      t.references :user, index: true, foreign_key: true
+      t.references :post, index: true, foreign_key: true
 
       t.timestamps null: false
     end
