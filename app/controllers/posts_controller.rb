@@ -21,13 +21,14 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		@user = current_user
+		@user = User.find( current_user[:id])
 		@post = @user.posts.find(params[:id])
 	end
 
 	def edit
 		@user = current_user
 		@post = @user.posts.find(params[:id])
+		# cannot delete edited message
 		
 		end
 
@@ -43,14 +44,14 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
-		@post = Post.find(params[:id])
+		@user = User.find( current_user[:id])
+		@post = @user.posts.find(params[:id])
     	@post.destroy
-			redirect_to root_path, notice: 'Post was successfully deleted.'
-		console.log("gotcha")
+			redirect_to user_posts_path, alert: "Post was successfully deleted."
 		end
 
 	private
-	 def post_params
+	def post_params
       params.require(:post).permit(:title, :content, :image)
     end
 end
