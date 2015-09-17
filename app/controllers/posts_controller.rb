@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
 	include SessionsHelper
 	def index
-		@posts = Post.all
+		@posts = current_user.posts
+		if current_user.admin
+			@posts = Post.all
+		else
+			@posts = current_user.posts
+		end
 		@user = current_user
 	end
 
@@ -22,12 +27,12 @@ class PostsController < ApplicationController
 
 	def show
 		@user = User.find( current_user[:id])
-		@post = @user.posts.find(params[:id])
+		@post = Post.find(params[:id])
 	end
 
 	def edit
 		@user = current_user
-		@post = @user.posts.find(params[:id])
+		@post = Post.find(params[:id])
 		# cannot delete edited message
 		
 		end
@@ -45,7 +50,7 @@ class PostsController < ApplicationController
 
 	def destroy
 		@user = User.find( current_user[:id])
-		@post = @user.posts.find(params[:id])
+		@post = Post.find(params[:id])
     	@post.destroy
 			redirect_to user_posts_path, alert: "Post was successfully deleted."
 		end

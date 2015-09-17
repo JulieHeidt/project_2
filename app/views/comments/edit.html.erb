@@ -1,0 +1,22 @@
+<%= form_for :comment, url: user_post_comment_path(@user), method: :comment do |f| %>
+    <div>
+      <li><%= f.label :name %></li>
+      <li><%= f.text_field :name %></li>
+    </div>
+
+    <div>
+      <li><%= f.label :email %></li>
+      <li><%= f.text_field :email %></li>
+    </div>
+
+    <div>
+      <li><%= f.label :body %></li>
+      <li><%= f.text_field :body %></li>
+    </div>
+
+    <div>
+      <%= f.submit %>
+    </div>
+  </div>
+  <div><%= link_to 'Show', user_post_path(@user.id, post) %></div>
+<% end %>

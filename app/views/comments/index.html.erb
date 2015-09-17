@@ -1,22 +1,15 @@
 <h1>My comments page</h1>
-<ul>
-<% @comments.each do |comment| %>
-	<li>
-		<%= link_to post.title, post_path(post) %>
-	</li>
-<% end %>
-</ul>
-
 <div>
-	<div>
-		<p>
-		<%= render '/users/:user_id/posts' %>
-		</p>
-		<% end %>
-	</div>
+<ul>
+	<% @comments.each do |comment| %>
+	<li><%= post.title %></li>
+	<li><%= post.content %></li>
+	<% end %>
+</ul>
+</div>
 
-	<div>
-		<%= render 'users/:user_id/posts/:post_id/comments' %>
-	</div>
-	
+<%= link_to 'create a new comment', new_user_post_comment_path %>
+<% if current_user && current_user.admin == true %>
+<%= link_to 'edit comment', new_user_post_comment_path %>
+
 </div>

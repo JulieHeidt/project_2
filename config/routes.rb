@@ -8,8 +8,8 @@ root "posts#index"
 
   get "/users/:user_id/posts/:post_id/comments" => "comments#index"
   post "/users/:user_id/posts/:post_id/comments" => "comments#create"
-  get "/users/:user_id/posts/:post_id/comments/new" => "comments#new"
-  get "/users/:user_id/posts/:post_id/comments/:id/edit" => "comments#edit"
+  get "/users/:user_id/posts/:post_id/comments/new" => "comments#new", as: :new_user_post_comment
+  get "/users/:user_id/posts/:post_id/comments/:id/edit" => "comments#edit", as: :edit_user_post_comment
   get "/users/:user_id/posts/:post_id/comments/:id" => "comments#show", as: :user_post_comment 
   patch "/users/:user_id/posts/:post_id/comments/:id" => "comments#update"
   put "/users/:user_id/posts/:post_id/comments/:id" => "comments#update"

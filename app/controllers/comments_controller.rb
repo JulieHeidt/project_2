@@ -1,25 +1,48 @@
 class CommentsController < ApplicationController
-	before_action :authenticate?
+	include SessionsHelper
 	def index
-		@comments = Comment.all
+		@comments = Comment.all 
+		# @comment_count = @comment.count
 	end
 
 	def show
 		@comment = Comment.find(params[:id])
 	end
 
+
 	def new
-		@comment = Comment.new
+    	@post = Post.find(params[:post_id])
+		@comment = @post.comments.new
+		@comment.user = current_user
 	end
 
 	def create
-		@comment = comment.(params[:user_id])
-		@comment = @user.comments.new(comment_params)
-   		if @comment.save
-    		redirect_to user_post_comment_path
-    	else
-    		render :new
-    	end
+		@post = Post.find(params[:post_id])
+		@comment = @post.comments.new(params.require(comment_params))
+		if @comment.save
+			redirect_to root_path
+		else
+			render :new
+		end
+	end
+
+	def edit
+		@comment = Comment.find(params[:id])
+	end
+
+	def update	
+		@comment = Comment.find(params[:id])
+		if @comment.update(post_params)
+			redirect_to @comment, alert: 'comment was successfully updated.'
+		else 
+			render :edit
+		end
+	end
+
+	def destroy
+		@comment = @Comment.find(params[:id])
+    	@comment.destroy
+			redirect_to user_post_path, alert: "comment was successfully deleted."
 	end
 
 	private
@@ -27,3 +50,6 @@ class CommentsController < ApplicationController
       params.require(:comment).permit(:name, :body, :email)
     end
 end
+
+
+
