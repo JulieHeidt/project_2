@@ -18,9 +18,9 @@ class CommentsController < ApplicationController
 
 	def create
 		@post = Post.find(params[:post_id])
-		@comment = @post.comments.new(params.require(comment_params))
+		@comment = @post.comments.create(comment_params)
 		if @comment.save
-			redirect_to root_path
+			redirect_to user_posts_path
 		else
 			render :new
 		end
@@ -42,7 +42,7 @@ class CommentsController < ApplicationController
 	def destroy
 		@comment = @Comment.find(params[:id])
     	@comment.destroy
-			redirect_to user_post_path, alert: "comment was successfully deleted."
+			redirect_to user_posts_path, alert: "comment was successfully deleted."
 	end
 
 	private

@@ -1,16 +1,25 @@
-<h1>This is the show page!</h1>
-   <div>
-      <%= comment.name %>
-      <%= comment.name %>
-    </div>
+<h1>This is a comment!</h1>
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+ 
+<p>
+  <strong>Content:</strong>
+  <%= @post.content %>
+</p>
+ 
+<h2>Add a comment:</h2>
+<%= form_for([@post, @post.comments.new]) do |f| %>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
 
-    <div>
-      <%= comment.email %>
-      <%= comment.email %>
-    </div>
 
-    <div>
-      <%= comment.body %>
-      <%= comment.body %>
-    </div>
-<%= link_to "Back to home", root_path %>
+<%= link_to 'Edit', edit_user_post_path(@user, @post) %> 
+<%= link_to 'Back', user_posts_path %>

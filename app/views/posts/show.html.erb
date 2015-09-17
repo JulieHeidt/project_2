@@ -7,5 +7,6 @@
 </ul>
 
 
-<%= link_to 'Edit', edit_user_post_path(@user, @post) %> 
-<%= link_to 'Back', user_posts_path %>
+<%= link_to 'Edit', edit_user_post_path(@user, @post) %>|
+<%= link_to 'Back', user_posts_path %>|
+<%= link_to 'Add comment', new_user_post_comment_path(@user.id, @post) %>
