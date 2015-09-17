@@ -1,22 +1,12 @@
-<%= form_for ([@user, @post, @comment]) do |f| %>
+<%= form_for :comment do|f| %>
     <div>
-      <li><%= f.label :name %></li>
-      <li><%= f.text_field :name %></li>
-    </div>
-
-    <div>
-      <li><%= f.label :email %></li>
-      <li><%= f.text_field :email %></li>
-    </div>
-
-    <div>
-      <li><%= f.label :body %></li>
-      <li><%= f.text_field :body %></li>
+      <%= f.label :body %>
+      <%= f.text_field :body %>
     </div>
 
     <div>
       <%= f.submit %>
     </div>
   </div>
-  <div><%= link_to 'Show', user_post_path(@user.id, post) %></div>
+  <div><%= link_to 'Show Posts', user_posts_path( current_user.id ) %></div>
 <% end %>

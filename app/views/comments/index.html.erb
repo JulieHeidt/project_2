@@ -2,8 +2,7 @@
 <div>
 <ul>
 	<% @comments.each do |comment| %>
-	<li><%= post.title %></li>
-	<li><%= post.content %></li>
+	<%= comment.body %>
 	<% end %>
 </ul>
 </div>

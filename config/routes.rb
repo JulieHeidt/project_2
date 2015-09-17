@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
 root "posts#index"
+
+  post "/users/:user_id/posts/:post_id/comments/new" => "comments#create", as: :comments_create
+
   resources :users do
     resources :posts do
       resources :comments 
     end
+    resources :comments
   end
 
   # get "/users/:user_id/posts/:post_id/comments" => "comments#index"
-  # post "/users/:user_id/posts/:post_id/comments" => "comments#create"
   # get "/users/:user_id/posts/:post_id/comments/new" => "comments#new", as: :new_user_post_comment
   # get "/users/:user_id/posts/:post_id/comments/:id/edit" => "comments#edit", as: :edit_user_post_comment
   # get "/users/:user_id/posts/:post_id/comments/:id" => "comments#show", as: :user_post_comment 

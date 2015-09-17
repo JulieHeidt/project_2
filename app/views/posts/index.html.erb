@@ -5,12 +5,16 @@
     <% @posts.each do |post| %>
       <li><%= post.title %></li>
       <li><%= post.content %></li>
+
+      <% post.comments.each do |comment| %>
+        <%= comment.body %>
+      <% end %>
       <%= link_to 'Show', user_post_path(@user.id, post) %>|
+<!--       <%= link_to #'Add comment', new_user_post_comment_path(@user.id, @post) %> -->
       <% if current_user && current_user.admin == true %>
         <%= link_to 'Edit Post', edit_user_post_path(@user.id, @post) %>|
         <%= link_to 'Delete Post', delete_user_post_path(@user.id, @post), method: :delete %>|
-        <%= link_to 'Add comment', new_user_post_comment_path(@user.id, @post) %>|
-      <% end %>
+      
       </br>
 
      <% end %>
