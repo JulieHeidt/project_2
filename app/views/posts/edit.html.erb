@@ -1,6 +1,8 @@
 <h1>Editing post</h1>
+<% @post %>
+	<li><%= post.title %></li>
+	<li><%= post.content %></li>
 
-<%= render 'form' %>
+	<li><%= link_to 'Make Comment', posts_path %></li>
+	<li><%= link_to 'Back', user_posts_path %></li>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>

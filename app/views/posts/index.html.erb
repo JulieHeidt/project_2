@@ -1,20 +1,15 @@
 <h1>My Blog Posts!</h1>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
+
+  <body>
     <% @posts.each do |post| %>
-    <% end %>
-  </tbody>
-</table>
+      <li><%= post.title %></li>
+      <li><%= post.content %></li>
+      <%= link_to 'Edit Post', edit_user_post_path(@user, @posts) %>
+      </br>
 
-<br>
+     <% end %>
+  </body>
 <% if current_user %>
-<%= link_to 'New Post', new_user_post_path( current_user.id ) %>
+<%= link_to 'New Post', new_user_post_path(@user) %>
 <% end %>

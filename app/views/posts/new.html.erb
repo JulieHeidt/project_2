@@ -1,6 +1,6 @@
 <h1>Upload a post</h1>
-<div class="form-control">
-<%= form_for :post do |f| %>
+<div>
+<%= form_for :post, url: user_posts_path(@user), method: :post do |f| %>
     <div>
       <%= f.label :title %>
       <%= f.text_field :title %>
@@ -13,6 +13,7 @@
 
     <div>
       <%= f.submit %>
+
     </div>
   </div>
 <% end %>

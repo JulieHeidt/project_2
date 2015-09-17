@@ -5,11 +5,10 @@ class SessionsController < ApplicationController
 	end
 	
 	def create
-		puts params
-		@user = User.find_by_email(params[:email])
-		if @user && @user.authenticate(params[:password])
-			session[:user_id] = @user.id
-	     	redirect_to user_path(@user)
+		user = User.find_by(email: params[:session][:email])
+		if user && user.authenticate(params[:session][:password])
+			session[:user_id] = user.id.to_s
+	     	redirect_to root_path
      	else
      		render :new
      		puts "Not authenticating"

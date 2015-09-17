@@ -2,11 +2,11 @@
 	<p>
 	<strong>Title:</strong>
 	<ul>
-	<%= @post.title %>
-	</p>
- 
-	<p>
-  	<strong>Content:</strong>
-  	<%= @post.text %>
-  	<%= <%= link_to "create new", new_user_post_path(@user, @post) %>
+	<% @posts.each do |post| %>
+		<li><%= post.title %></li>
+		<li><%= post.content %></li>
+	<% end %>
+	</ul>
+
+  	<%= link_to "create new", new_user_post_path(@user, @post) %>
 	</p>

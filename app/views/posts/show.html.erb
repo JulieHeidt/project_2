@@ -1,9 +1,14 @@
-<h1>This is the show page!</h1>
-<p>
+<h1>My Daily Gratitiude!</h1>
+<h2>Write your thanks</h2>
+<ul>
+    <% @posts.each do |post| %>
 
-<h2><%= @post.title%></h2>
+	<li><%= post.title %></li>
+	<li>%= post.content %></li>
+
 
 <%= @post.body %></p>
+</ul>
 
-<%= link_to 'Edit', edit_user_post_path(@post) %> |
+<%= link_to 'Edit', edit_user_post_path(@user, @post) %> 
 <%= link_to 'Back', posts_path %>
