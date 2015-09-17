@@ -5,11 +5,13 @@
     <% @posts.each do |post| %>
       <li><%= post.title %></li>
       <li><%= post.content %></li>
-      <%= link_to 'Edit Post', edit_user_post_path(@user, @posts) %>
+      <%= link_to 'Show', user_post_path(@user, post) %>|
+      <%= link_to 'Edit Post', user_post_path(@user, @posts) %>|
+      <%= link_to 'Delete Post', user_post_path(@user, @posts) %>
       </br>
 
      <% end %>
   </body>
 <% if current_user %>
-<%= link_to 'New Post', new_user_post_path(@user) %>
+<%= link_to 'New Post', new_user_post_path(@user) %> 
 <% end %>

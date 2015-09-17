@@ -5,11 +5,6 @@ class PostsController < ApplicationController
 		@user = current_user
 	end
 
-	def show
-		@post = Post.find(params[:id])
-		
-	end
-
 	def new
 		@post = Post.new
 		@user = current_user
@@ -23,6 +18,11 @@ class PostsController < ApplicationController
     	else
     		render :new
     	end
+	end
+
+	def show
+		@user = current_user
+		@post = @user.posts.find(params[:id])
 	end
 
 	def edit
@@ -45,7 +45,8 @@ class PostsController < ApplicationController
 	def destroy
 		@post = Post.find(params[:id])
     	@post.destroy
-			redirect_to posts_path, notice: 'Post was successfully deleted.'
+			redirect_to root_path, notice: 'Post was successfully deleted.'
+		console.log("gotcha")
 		end
 
 	private

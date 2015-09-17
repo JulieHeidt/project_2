@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 	include SessionsHelper
 	def new
-		current_user
 	end
 	
 	def create

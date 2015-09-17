@@ -1,14 +1,11 @@
 <h1>My Daily Gratitiude!</h1>
 <h2>Write your thanks</h2>
 <ul>
-    <% @posts.each do |post| %>
 
-	<li><%= post.title %></li>
-	<li>%= post.content %></li>
-
-
-<%= @post.body %></p>
+	<li><%= @post.title %></li>
+	<li><%= @post.content %></li>
 </ul>
 
+
 <%= link_to 'Edit', edit_user_post_path(@user, @post) %> 
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back', user_posts_path %>
