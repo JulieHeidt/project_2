@@ -1,11 +1,11 @@
 <h1>Editing post</h1>
 <div>
-<%= form_for :post, url: user_posts_path(@user), method: :post do |f| %>
+<%= form_for @post, url: user_posts_path(@user), method: :post do |f| %>
     <div>
       <%= f.label :title %>
       <%= f.text_field :title %>
     </div>
-      <div>
+    <div>
       <%= f.label :content %>
       <%= f.text_field :content %>
     </div>

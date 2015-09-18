@@ -35,12 +35,12 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		# cannot delete edited message
 		
-		end
+	end
 
 	def update
 		@post = Post.find(params[:id])
 		@user = current_user
-		if @post.update_attributes(post_params)
+		if @post.update(post_params)
 			# why attributes
 			redirect_to @post, notice: 'Post was successfully updated.'
 		else 
@@ -49,11 +49,11 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
-		@user = User.find( current_user[:id])
-		@post = Post.find(params[:id])
-    	@post.destroy
-			redirect_to user_posts_path, alert: "Post was successfully deleted."
-		end
+	   post = Post.find(params[:id])
+	   Comment.where({post_id: post.id }).destroy_all
+	   Post.destroy( post.id )
+	   redirect_to user_posts_path
+	end
 
 	private
 	def post_params

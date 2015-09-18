@@ -1,24 +1,24 @@
 <h1>My Blog Posts!</h1>
+  <div="postConainter">
+    <div class="postList">
+      <% @posts.each do |post| %>
+        <div class="postTitle"><%= post.title %></div>
+        <br>
+        <div><%= post.content %></div>
+        <br>
+    </div>
 
+        <% if current_user.id == post.user_id || current_user.admin == true %>
+          <%= link_to 'Edit Post', edit_user_post_path(@user.id, post) %>|
+          <%= link_to 'Delete Post', delete_user_post_path(@user.id, post), method: :delete %>|
+          <%= link_to 'Add comment', user_post_comments_path(@user.id, post) %>
+        <% end %>
+        </br>
 
-  <body>
-    <% @posts.each do |post| %>
-      <li><%= post.title %></li>
-      <li><%= post.content %></li>
-
-      <% post.comments.each do |comment| %>
-        <%= comment.body %>
-      <% end %>
-      <%= link_to 'Show', user_post_path(@user.id, post) %>|
-<!--       <%= link_to #'Add comment', new_user_post_comment_path(@user.id, @post) %> -->
-      <% if current_user && current_user.admin == true %>
-        <%= link_to 'Edit Post', edit_user_post_path(@user.id, @post) %>|
-        <%= link_to 'Delete Post', delete_user_post_path(@user.id, @post), method: :delete %>|
-      
-      </br>
-
-     <% end %>
+       <% end %>
   </body>
-<% if current_user %>
-<%= link_to 'New Post', new_user_post_path(@user) %> 
-<% end %>
+  <% if current_user %>
+    <ul class="pushDown30">
+    <%= link_to 'New Post', new_user_post_path(@user) %> 
+    </ul>
+  <% end %>

@@ -2,13 +2,14 @@ Rails.application.routes.draw do
 root "posts#index"
 
   post "/users/:user_id/posts/:post_id/comments/new" => "comments#create", as: :comments_create
-
+  delete "/users/:user_id/posts/:id" => "posts#destroy", as: :delete_user_post
   resources :users do
     resources :posts do
       resources :comments 
     end
-    resources :comments
   end
+
+  # delete "/users/:user_id/posts/:post_id/comments/:id" => "comments#destroy", as: :delete_user_post_comment
 
   # get "/users/:user_id/posts/:post_id/comments" => "comments#index"
   # get "/users/:user_id/posts/:post_id/comments/new" => "comments#new", as: :new_user_post_comment
@@ -16,7 +17,7 @@ root "posts#index"
   # get "/users/:user_id/posts/:post_id/comments/:id" => "comments#show", as: :user_post_comment 
   # patch "/users/:user_id/posts/:post_id/comments/:id" => "comments#update"
   # put "/users/:user_id/posts/:post_id/comments/:id" => "comments#update"
-  # delete "/users/:user_id/posts/:post_id/comments/:id" => "comments#destroy"
+
 
   # get "/users/:user_id/posts" => "posts#index", as: :user_posts
   # post "/users/:user_id/posts" => "posts#create"
@@ -25,7 +26,7 @@ root "posts#index"
   # get "/users/:user_id/posts/:id" => "posts#show", as: :user_post
   # patch "/users/:user_id/posts/:id" => "posts#update"
   # put "/users/:user_id/posts/:id" => "posts#update"
-  # delete "/users/:user_id/posts/:id" => "posts#destroy", as: :delete_user_post
+ 
 
   # get "/users" => "users#index"
   # post "/users" => "users#create"

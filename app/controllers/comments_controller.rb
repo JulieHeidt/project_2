@@ -6,7 +6,9 @@ class CommentsController < ApplicationController
 	end
 
 	def show
+		@post = Post.find(params[:post_id])
 		@comment = Comment.find(params[:id])
+		@user = current_user
 	end
 
 
@@ -39,10 +41,15 @@ class CommentsController < ApplicationController
 	def update	
 		@comment = Comment.find(params[:id])
 		if @comment.update(post_params)
-			redirect_to @comment, alert: 'comment was successfully updated.'
+			redirect_to @comment, data: { alert: 'comment was successfully updated.' }
 		else 
 			render :edit
 		end
+	end
+
+	def count
+		@post = Post.find(params[:post_id])
+		@comment = @post.comments.count(params[:comment])
 	end
 
 	def destroy
