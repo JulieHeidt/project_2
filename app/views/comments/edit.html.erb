@@ -6,17 +6,19 @@
 
 		<%= form_for :comment, url: user_post_comment_path(@comment.user_id, @comment.id, @comment.post_id), method: :comment do |f| %>
 		    <div>
+		    <ul>
 		      <li><%= f.label :body %></li>
 		      <li><%= f.text_field :body %></li>
+		     </ul>
 		    </div>
 
 		    <div>
 		      <%= f.submit %>
+		
+		  <div><%= link_to 'Show', user_post_path(@comment.id, @comment.post_id) %></div>
+			<% end %>
 		    </div>
 		  </div>
-		  <div><%= link_to 'Show', user_post_path(@comment.id, @comment.post_id) %></div>
-		<% end %>
-
       </div>
     </div>
   </div>

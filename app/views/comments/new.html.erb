@@ -4,11 +4,12 @@
       <div class="col-sm-12">
 		<div class="col-sm-12 col-sm-offset-1">
 			<%= form_for :comment do|f| %>
+		    	<div>	
 		    	<ul>
 			    	<li><%= f.label :body %></li>
 			     	<li><%= f.text_field :body, class: "form-control" %></li>
 			    </ul>
-
+			    </div>
 		    <div class="pushDown30"></div>
 		     	<%= f.submit %>
 		      	<% end %>

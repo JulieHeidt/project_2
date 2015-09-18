@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
 		@post.comments << @comment
 		@user.comments << @comment
 		if @comment.save
-			redirect_to user_posts_path
+			redirect_to user_post_path(@user, @post)
 		else
 			render :new
 		end
@@ -40,7 +40,7 @@ class CommentsController < ApplicationController
 
 	def update	
 		@comment = Comment.find(params[:id])
-		if @comment.update(post_params)
+		if @comment.update
 			redirect_to @comment, data: { alert: 'comment was successfully updated.' }
 		else 
 			render :edit
@@ -48,8 +48,6 @@ class CommentsController < ApplicationController
 	end
 
 	def count
-		@post = Post.find(params[:post_id])
-		@comment = @post.comments.count(params[:comment])
 	end
 
 	def destroy

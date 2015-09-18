@@ -1,8 +1,8 @@
-<h1>My Blog Posts!</h1>
 <section>
   <div class="container">
     <div ="row">
       <div class="col-sm-12">
+      <h1>My Blog Posts!</h1>
         <% if current_user != nil %>
         <ul class="pushDown30">
         <li><%= link_to 'New Post', new_user_post_path(@user) %></li>
