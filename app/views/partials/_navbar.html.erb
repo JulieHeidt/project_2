@@ -18,11 +18,11 @@
 		<% if current_user %>
 		  <li>You are logged in as <%= current_user.name %></li>
 		    
-		 <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+		 <li><%= link_to "Log Out", logout_path, method: :delete, class: "glyphicon glyphicon-log-out" %></li>
 
 		<% else %>
 		    <li><%= link_to "Log In", login_path %></li>
-		    <li><%= link_to "Sign Up", new_user_path %></li>
+		    <li><%= link_to "Sign Up", new_user_path, class: "glyphicon glyphicon-user" %></li>
 		<% end %>
       </ul>
       <form class="navbar-form navbar-right" role="search">

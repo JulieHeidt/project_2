@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
 	     	redirect_to root_path
      	else
      		render :new
-     		puts "Not authenticating"
      	end
 	end
 	

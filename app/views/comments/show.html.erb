@@ -3,17 +3,17 @@
     <strong>Title:</strong>
     <%= @post.title %>
   </p>
-  <p>
+  <ul>
     <strong>Content:</strong>
-      <%= @post.content %>
-  </p>
+    <li><%= @post.content %></li>
+  </ul>
   </br>
   <h2>Add a comment:</h2>
     <%= form_for([post_id, @post.comments.new]) do |f| %>
-    <p>
-      <%= f.label :body %><br>
-      <%= f.text_area :body %>
-    </p>
+    <ul>
+      <li><%= f.label :body %></li>
+      <li><%= f.text_area :body %></li>
+    </ul>
     <p>
       <%= f.submit %>
     </p>

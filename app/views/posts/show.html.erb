@@ -8,6 +8,9 @@
 <ul>
 	<% @post.comments.each do |comment| %>
 		<li><%= comment.body %></li>
+			<% if current_user.id == comment.user_id || current_user.admin == true %>
+			<%= link_to 'edit comment', edit_user_post_comment_path(comment.user_id, @post.id, comment.id) %>
+			<% end %>
 	<% end %>
 </ul>
 

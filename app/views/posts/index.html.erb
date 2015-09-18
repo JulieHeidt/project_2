@@ -1,24 +1,27 @@
 <h1>My Blog Posts!</h1>
-  <div="postConainter">
-    <div class="postList">
-      <% @posts.each do |post| %>
-        <div class="postTitle"><%= post.title %></div>
-        <br>
-        <div><%= post.content %></div>
-        <br>
-    </div>
-        <%= link_to 'show comments', user_post_path(@user.id, post) %>
-        <% if current_user.id == post.user_id || current_user.admin == true %>
-          <%= link_to 'Edit Post', edit_user_post_path(@user.id, post) %>|
-          <%= link_to 'Delete Post', delete_user_post_path(@user.id, post), method: :delete %>|
-          <%= link_to 'Add comment', user_post_comments_path(@user.id, post) %>
+<section>
+  <div class="container">
+    <div ="row">
+      <div class="col-sm-12 text-center">
+        <% if current_user != nil %>
+        <ul class="pushDown30">
+        <li><%= link_to 'New Post', new_user_post_path(@user) %></li>
+        </ul>
         <% end %>
-        </br>
-
-       <% end %>
-  </body>
-  <% if current_user %>
-    <ul class="pushDown30">
-    <%= link_to 'New Post', new_user_post_path(@user) %> 
-    </ul>
-  <% end %>
+        <% @posts.each do |post| %>
+          <ul>
+            <li><%= post.title %></li>
+            <li id="postsDisplay"><%= post.content %></li>
+          </ul>
+          <ul>
+            <li><%= link_to 'show comments', user_post_path(@user.id, post) %></li>
+            <% if current_user.id == post.user_id || current_user.admin == true %>
+              <li><%= link_to 'Post', edit_user_post_path(@user.id, post), class: "glyphicon glyphicon-pencil" %></li>
+              <li><%= link_to 'Post', delete_user_post_path(@user.id, post), method: :delete, class: "glyphicon glyphicon-trash" %></li>
+              <li><%= link_to 'Add comment', user_post_comments_path(@user.id, post), class: "glyphicon glyphicon-comment" %></li>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,12 +1,15 @@
-<%= form_for :comment do|f| %>
-    <div>
-      <%= f.label :body %>
-      <%= f.text_field :body %>
-    </div>
 
-    <div>
+<div class="col-sm-10 col-sm-offset-1">
+<%= form_for :comment do|f| %>
+    <ul>
+    	<li><%= f.label :body %></li>
+     	<li><%= f.text_field :body %></li>
+    </ul>
+
+    <div class="pushDown30">
       <%= f.submit %>
     </div>
   </div>
-  <div><%= link_to 'Show Posts', user_posts_path( current_user.id ) %></div>
+<div class="col-sm-10 col-sm-offset-1">
+  <div class="pushDown30"><%= link_to 'Show Posts', user_posts_path( current_user.id ) %></div>
 <% end %>

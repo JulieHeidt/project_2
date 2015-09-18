@@ -1,19 +1,27 @@
-<h1>Editing post</h1>
-<div>
-<%= form_for [@user, @post] do |f| %>
-    <div>
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-    </div>
-    <div>
-      <%= f.label :content %>
-      <%= f.text_field :content %>
-    </div>
+<section>
+  <div class="container">
+    <div ="row">
+      <div class="col-sm-12 text-center">
+        <h1>Editing post</h1>
+        <div>
+        <%= form_for [@user, @post] do |f| %>
+            <ul>
+              <li><%= f.label :title %></li>
+              <li><%= f.text_field :title %></li>
+            </ul>
+            <ul>
+              <li><%= f.label :content %></li>
+              <li><%= f.text_field :content, class: "paddedInput" %></li>
+            </ul>
 
-    <div>
-      <%= f.submit %>
+            <ul>
+              <li><%= f.submit %></li>
 
+            </ul>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-<% end %>
+</section>
 

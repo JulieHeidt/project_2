@@ -1,19 +1,16 @@
 <h1>Upload a post</h1>
 <div>
 <%= form_for :post, url: user_posts_path(@user), method: :post do |f| %>
-    <div>
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-    </div>
-      <div>
-      <%= f.label :content %>
-      <%= f.text_field :content %>
-    </div>
-
-
-    <div>
+    <ul>
+      <li><%= f.label :title %><li>
+      <li><%= f.text_field :title %></li>
+    </ul>
+     <ul>
+        <li><%= f.label :content %></li>
+        <li><%= f.text_field :content %></li>
+    </ul>
+    <div class="pushDown30">
       <%= f.submit %>
-
     </div>
   </div>
 <% end %>

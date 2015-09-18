@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-root "posts#index"
+ root "posts#index"
 
   post "/users/:user_id/posts/:post_id/comments/new" => "comments#create", as: :comments_create
   get "/users/:user_id/posts/:post_id/comments/" => "comments#new", as: :new_comment
