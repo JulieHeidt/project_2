@@ -1,16 +1,23 @@
-<h1>Users</h1>
-<ul>
-  <% @users.each do |user| %>
-    <li><%= user.name %></li>
+<section class="postShow">
+  <div class="container">
+    <div ="row">
+      <div class="col-sm-12">
 
-    <li>
-        <h5>Posts</h5>
-    	<ul>
-		<% user.posts.each do |p| %>
-			<li><%= p.title %></li>
-			<li><%= p.content %></li>
-		<% end %>
+		<h1>Users</h1>
+		<ul>
+		  <% @users.each do |user| %>
+		    <li><%= user.name %></li>
+
+		        <h5>Posts</h5>
+		    	<ul>
+				<% user.posts.each do |p| %>
+					<li><%= p.title %></li>
+					<li><%= p.content %></li>
+				<% end %>
 		</ul>
-	</li>
-	<% end %>
-</ul>
+			<% end %>
+		</ul>
+      </div>
+    </div>
+  </div>
+</section>

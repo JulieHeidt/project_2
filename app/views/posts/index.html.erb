@@ -2,7 +2,7 @@
 <section>
   <div class="container">
     <div ="row">
-      <div class="col-sm-12 text-center">
+      <div class="col-sm-12">
         <% if current_user != nil %>
         <ul class="pushDown30">
         <li><%= link_to 'New Post', new_user_post_path(@user) %></li>
@@ -10,8 +10,10 @@
         <% end %>
         <% @posts.each do |post| %>
           <ul>
+            <strong>Post Title:</strong>
             <li><%= post.title %></li>
-            <li id="postsDisplay"><%= post.content %></li>
+            <strong>Post Content:</strong>
+            <li><%= post.content %></li>
           </ul>
           <ul>
             <li><%= link_to 'show comments', user_post_path(@user.id, post) %></li>

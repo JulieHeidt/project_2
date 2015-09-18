@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav">
        
 		<% if current_user %>
-		  <li>You are logged in as <%= current_user.name %></li>
+		  <li><%= link_to current_user.name , users_path %></li>
 		    
 		 <li><%= link_to "Log Out", logout_path, method: :delete, class: "glyphicon glyphicon-log-out" %></li>
 

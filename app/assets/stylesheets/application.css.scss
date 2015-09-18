@@ -42,10 +42,15 @@ ul li {
 /*nav*/
 
 .navbar {
-	background: rgba(116,89,137,.7);
+	background: rgba(116,89,137,.9);
+
+	.navbar-brand {
+		color: #fff;
+	}
 }
 
 .nav > li > a{
+	color: #fff;
 	transition: all ease .3s;	
 }
 
