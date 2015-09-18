@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 root "posts#index"
 
   post "/users/:user_id/posts/:post_id/comments/new" => "comments#create", as: :comments_create
+  get "/users/:user_id/posts/:post_id/comments/" => "comments#new", as: :new_comment
   delete "/users/:user_id/posts/:id" => "posts#destroy", as: :delete_user_post
   resources :users do
     resources :posts do

@@ -5,8 +5,13 @@
 	<li><%= @post.title %></li>
 	<li><%= @post.content %></li>
 </ul>
+<ul>
+	<% @post.comments.each do |comment| %>
+		<li><%= comment.body %></li>
+	<% end %>
+</ul>
 
 
 <%= link_to 'Edit', edit_user_post_path(@user, @post) %>|
 <%= link_to 'Back', user_posts_path %>|
-<%= link_to 'Add comment', new_user_post_comment_path(@user.id, @post) %>
+<%= link_to 'Add comment', new_comment_path(@user.id, @post) %>

@@ -12,7 +12,8 @@
 	<% end %>
 
 
-<%= link_to 'create a new comment', new_user_post_comment_path %>
+
+
 <%= link_to 'Back', user_posts_path %>
 	<% if current_user && current_user.admin == true %>
 	<%= link_to 'edit comment', new_user_post_comments_path %>
