@@ -40,9 +40,9 @@ class PostsController < ApplicationController
 	def update
 		@post = Post.find(params[:id])
 		@user = current_user
-		if @post.update(post_params)
+		if @post.update_attributes(post_params)
 			# why attributes
-			redirect_to @post, notice: 'Post was successfully updated.'
+			redirect_to user_posts_path, notice: 'Post was successfully updated.'
 		else 
 			render :edit
 		end
